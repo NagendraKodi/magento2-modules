@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="helloworld_display_text">
+        <observer name="display_text" instance="Orange\Helloworld\Model\Observer\ChangeDisplayText" />
+    </event>
+    <event name="adminhtml_customer_save_after">
+        <observer name="helloworld_customer_save_after" instance="Orange\Helloworld\Model\Observer\Customersaveafter" />
+    </event>
+</config>

@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<div class="field gender<?php if ($block->isRequired()) echo ' required' ?>">
+    <label class="label" for="<?php /* @escapeNotVerified */ echo $block->getFieldId('company_name')?>"><span><?php /* @escapeNotVerified */ echo __('Company Name') ?></span></label>
+    <div class="control">
+                <input type="text" id="<?php /* @escapeNotVerified */ echo $block->getFieldId('company_name') ?>"
+                       name="<?php /* @escapeNotVerified */ echo $block->getFieldName('company_name') ?>"
+                       value="<?php echo $block->escapeHtml($block->getObject()->getCustomAttribute('company_name')->getValue()) ?>"
+                       title="<?php /* @escapeNotVerified */ echo $block->getStoreLabel('company_name') ?>"
+                       class="input-text <?php /* @escapeNotVerified */ echo $block->getAttributeValidationClass('company_name') ?>" <?php /* @escapeNotVerified */ echo $block->getFieldParams() ?> <?php if ($block->getAttributeValidationClass('company_name') == 'required-entry') echo ' data-validate="{required:true}"' ?>>
+            </div>
+</div>

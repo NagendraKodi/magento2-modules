@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Orange\OrderGridSync\Api\GridsyncInterface" type="Orange\OrderGridSync\Model\Gridsync" />
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid" type="Magento\Sales\Model\ResourceModel\Grid" >
+        <arguments>
+            <!-- Here we are joins the "affiliate_information" custom column to the 'sales_order_grid' -->
+            <argument name="joins" xsi:type="array">
+                <item name="affiliate" xsi:type="array">
+                    <item name="table" xsi:type="string">affiliate</item>
+                    <item name="origin_column" xsi:type="string">entity_id</item>
+                    <item name="target_column" xsi:type="string">id</item>
+                </item>
+            </argument>
+            <!-- Here we add which column need to join to grid table 'sales_order_grid' -->
+            <argument name="columns" xsi:type="array">
+                <item name="affiliate_information" xsi:type="string">affiliate.affiliate_information</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

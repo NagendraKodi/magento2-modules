@@ -1,0 +1,26 @@
+{
+    "name": "orange/module-helloworld",
+    "description": "",
+
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "Orange License",
+    "authors": [
+        {
+          "name": "Hi",
+          "email": "hi@orange.com",
+          "homepage": "https://www.orange.com",
+          "role": "Leader"
+        }
+    ],
+
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Orange\\HelloWorld\\": ""
+        }
+    }
+
+}

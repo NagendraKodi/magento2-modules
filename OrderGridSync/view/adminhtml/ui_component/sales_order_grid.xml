@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <!-- after adding "affiliate_information" (Custom Column) to the sales order grid. listingToolbar will break so to 
+         work it properly we are adding listingToolbar section -->
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <exportButton name="export_button"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters">
+            <filterSelect name="store_id" provider="${ $.parentName }">
+                <settings>
+                    <options class="Magento\Store\Ui\Component\Listing\Column\Store\Options"/>
+                    <caption translate="true">All Store Views</caption>
+                    <label translate="true">Purchase Point</label>
+                    <dataScope>store_id</dataScope>
+                    <imports>
+                        <link name="visible">ns = ${ $.ns }, componentType = column, index = ${ $.index }:visible</link>
+                    </imports>
+                </settings>
+            </filterSelect>
+        </filters>
+        <massaction name="listing_massaction" component="Magento_Ui/js/grid/tree-massactions">
+            <action name="cancel">
+                <settings>
+                    <url path="sales/order/massCancel"/>
+                    <type>cancel</type>
+                    <label translate="true">Cancel</label>
+                </settings>
+            </action>
+            <action name="hold_order">
+                <settings>
+                    <url path="sales/order/massHold"/>
+                    <type>hold_order</type>
+                    <label translate="true">Hold</label>
+                </settings>
+            </action>
+            <action name="unhold_order">
+                <settings>
+                    <url path="sales/order/massUnhold"/>
+                    <type>unhold_order</type>
+                    <label translate="true">Unhold</label>
+                </settings>
+            </action>
+            <action name="pdfinvoices_order">
+                <settings>
+                    <url path="sales/order/pdfinvoices"/>
+                    <type>pdfinvoices_order</type>
+                    <label translate="true">Print Invoices</label>
+                </settings>
+            </action>
+            <action name="pdfshipments_order">
+                <settings>
+                    <url path="sales/order/pdfshipments"/>
+                    <type>pdfshipments_order</type>
+                    <label translate="true">Print Packing Slips</label>
+                </settings>
+            </action>
+            <action name="pdfcreditmemos_order">
+                <settings>
+                    <url path="sales/order/pdfcreditmemos"/>
+                    <type>pdfcreditmemos_order</type>
+                    <label translate="true">Print Credit Memos</label>
+                </settings>
+            </action>
+            <action name="pdfdocs_order">
+                <settings>
+                    <url path="sales/order/pdfdocs"/>
+                    <type>pdfdocs_order</type>
+                    <label translate="true">Print All</label>
+                </settings>
+            </action>
+            <action name="print_shipping_label">
+                <settings>
+                    <url path="adminhtml/order_shipment/massPrintShippingLabel"/>
+                    <type>print_shipping_label</type>
+                    <label translate="true">Print Shipping Labels</label>
+                </settings>
+            </action>
+        </massaction>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <!-- Add the column "affiliate_information" (Custom Column) to the sales order grid. -->
+    <columns name="sales_order_columns">
+        <column name="affiliate_information">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Affiliate Information</item>
+                </item>
+            </argument>
+        </column>
+        <column name="city">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">City</item>
+                </item>
+            </argument>
+        </column>
+    </columns>
+</listing>

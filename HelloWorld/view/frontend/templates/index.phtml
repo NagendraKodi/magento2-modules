@@ -1,0 +1,99 @@
+<?php
+/**
+ * @var \Orange\HelloWorld\Block\Display $block
+ */
+echo $block->sayHello(); echo "<br>";
+$product = $this->getLoadProduct(1);
+echo "Product Name: ".$product->getName();
+?>
+<link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('Orange_HelloWorld::css/samplecss.css')?>">
+<form  action="<?php echo $block->getUrl('helloworld/index/save'); ?>" id="form-configurator" class="main-form" method="post" enctype="multipart/form-data" >
+  Name:<br>
+  <input type="text" width ="100px" name="name" value="">
+  <br>
+  <input type="submit" value="Submit">
+</form>
+
+<table id="listview" >
+  <tr>
+    <th class="post-id">Id</th>
+    <th class="post-name">Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+    <?php
+        foreach ($block->getPostCollection() as $key=>$post){
+            echo '<tr>
+                    <td>'.$post->getId().'</td>
+                    <td>'.$post->getName().'</td>
+                    <td>
+                        <a class="edit" href='.$block->getUrl('helloworld/index/edit?id='.$post->getId().'').'> Edit </a>
+                    </td>
+                    <td>
+                        <a class="edit" href='.$block->getUrl('helloworld/index/delete?id='.$post->getId().'/').'> Delete </a>
+                    </td>
+                  </tr>';
+        }
+    ?>
+</table>
+<!-- <?php /* Ajax form submit code in jQuery
+<script type="text/javascript">
+require(['jquery','orange/helloWorld'],function(){
+    jQuery(document).ready(function() {
+        jQuery("form").on('submit', function (e) {
+            e.preventDefault();
+            var nameValue = jQuery("input[name='name']").val();
+            var url = "<?php echo $block->getUrl('helloworld'); ?>";
+            jQuery.ajax({
+                url: url,
+                type: "POST",
+                dataType: 'json',
+                data: {name:nameValue},
+                showLoader: true,
+                cache: false,
+                complete: function () {
+                    alert("success");
+                     jQuery('#listview').load('#listview');
+                }
+            });
+        });
+    });
+});
+</script>
+*/ ?> -->
+<br><br><br><br>
+<div data-bind="scope: 'koexample'">
+<!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "koexample": {
+                            "component": "Orange_HelloWorld/js/index",
+                            "template" : "Orange_HelloWorld/index"
+                        }
+                    }
+                }
+            }
+        }
+</script>
+<br><br><br><br>
+<script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "kolist": {
+                            "component": "Orange_HelloWorld/js/kolist",
+                            "items": <?php echo $block->getPostCustomers(); ?>
+                        }
+                    }
+                }
+            }
+        }
+</script>
+<div data-bind="scope: 'kolist'">
+<!-- ko template: getTemplate() --><!-- /ko -->
+</div>

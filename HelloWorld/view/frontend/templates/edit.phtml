@@ -1,0 +1,16 @@
+<h2>Welcome</h2>
+<form action="<?php echo $block->getUrl('helloworld/index/edit'); ?>" method="post">
+<?php  
+$_id = $this->getRequest()->getParam('id'); 
+if ($_id)  {
+    $id = rtrim($_id, '/'); ?>
+    <input type="hidden" width ="100px" name="id" value="<?php echo $id; ?>">
+<?php } ?>
+  Name:<br>
+  <input type="text" width ="100px" name="name" value="">
+  <br>
+  <!--Content:<br>
+  <textarea rows="4" cols="50" name="content" form="usrform" placeholder="Enter text here..."></textarea>
+  <br><br>-->
+  <input type="submit" value="Submit">
+</form> 

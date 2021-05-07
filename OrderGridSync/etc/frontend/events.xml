@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/Event/etc/events.xsd">
+    <event name="order_grid_sync_display_text">
+        <observer name="mn_display_text" instance="Orange\OrderGridSync\Model\Observer\OrderGridSync" />
+    </event>
+</config>

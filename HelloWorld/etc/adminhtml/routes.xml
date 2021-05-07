@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+	<router id="admin">
+		<route frontName="orange_helloworld" id="orange_helloworld">
+			<module before="Magento_Backend" name="Orange_Helloworld"/>
+		</route>
+		<route frontName="helloworld" id="helloworld">
+			<module before="Magento_Backend" name="Orange_Helloworld"/>
+		</route>
+	</router>
+</config>

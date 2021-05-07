@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Orange\HelloWorld\Api\PostsInterface"
+                type="Orange\HelloWorld\Model\Posts" />
+    <type name="Orange\HelloWorld\Controller\Sample\Plugin">
+        <plugin name="Orange_HelloWorld_Plugin" type="Orange\HelloWorld\Plugin\SamplePlugin" sortOrder="10" disabled="false"  />
+    </type>
+    
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="orange_helloworld_post_listing_data_source" xsi:type="string">Orange\HelloWorld\Model\ResourceModel\Post\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Orange\HelloWorld\Model\ResourceModel\Post\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">orange_helloworld_post</argument>
+            <argument name="resourceModel" xsi:type="string">Orange\HelloWorld\Model\ResourceModel\Post</argument>
+        </arguments>
+    </virtualType>
+    <!-- 
+    <preference for="Magento\Catalog\Block\Product\View" type="Orange\HelloWorld\Block\Catalog\Product\View" />
+    --><preference for="Magento\Catalog\Model\Product" type="Orange\HelloWorld\Model\Catalog\Product" />
+    <preference for="Magento\Catalog\Controller\Product\View" type="Orange\HelloWorld\Controller\Catalog\Product\View" />
+    <preference for="Magento\Catalog\Helper\Data" type="Orange\HelloWorld\Helper\Catalog\Data" />
+    
+</config>

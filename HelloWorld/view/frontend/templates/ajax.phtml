@@ -1,0 +1,22 @@
+<script>
+    window.lastId = "<?php echo $block->getLastId(); ?>";
+</script>
+ <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "knockout": {
+                            "component": "Orange_HelloWorld/js/ajax",
+                            "template" : "Orange_HelloWorld/ajax",
+                            "dataUrl": "<?php echo $block->getUrl('helloworld/index/save'); ?>",
+                            "items": <?php echo $block->getPostCustomers(); ?>
+                        }
+                    }
+                }
+            }
+        }
+</script>
+<div data-bind="scope: 'knockout'">
+<!-- ko template: getTemplate() --><!-- /ko -->
+</div>

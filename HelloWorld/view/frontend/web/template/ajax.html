@@ -1,0 +1,40 @@
+<div class="component-wrapper">
+    <div class="field">
+        <label class="label" for="email"><span data-bind="i18n: 'Name'"></span></label>
+        <div class="control">
+                <input name="name" id="customername" type="text" class="input-text" data-bind="value: customerData">
+        </div>
+    </div>
+    <div class="primary">
+        <button type="button" class="action action-login secondary" data-bind="click: addNewCustomer">
+            <span data-bind="i18n: 'Save'"></span>
+        </button>
+    </div>
+</div>
+
+UI using Knockout(values from block)
+
+<table>
+  <thead>
+     <tr>
+        <th>Name</th>
+      </tr>
+  </thead>
+  <tbody data-bind="foreach: columnNames">
+      <tr>
+            <td data-bind="text: name"></td>
+      </tr>
+  </tbody>
+<tbody data-bind="foreach: customerName">
+      <tr>
+            <td data-bind="text: name == 'admin' ? 'you entered as admin' : name "></td>
+      </tr>
+  </tbody>
+</table>
+<br><br><br><br>
+<!-- ko if: myFlag -->
+    ...some stuff for the true case in ko
+<!-- /ko -->
+<!-- ko ifnot: myFlag -->
+    ...some stuff for the else (false) case in ko
+<!-- /ko -->

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+  <event name="controller_action_predispatch">
+      <observer name="my_observer2" instance="Orange\TestPlugins2\Model\Observer" shared="false" />
+  </event>
+</config>
