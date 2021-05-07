@@ -3,20 +3,20 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+
 namespace Orange\CartUpdate\Block\Cart\Item\Renderer;
 
-use Magento\Catalog\Model\Config\Source\Product\Thumbnail as ThumbnailSource;
-use Magento\Checkout\Block\Cart\Item\Renderer;
-use Magento\Framework\DataObject\IdentityInterface;
-use Magento\Catalog\Pricing\Price\ConfiguredPriceInterface;
-use Magento\Checkout\Block\Cart\Item\Renderer\Actions;
-use Magento\Framework\Pricing\PriceCurrencyInterface;
-use Magento\Framework\View\Element\AbstractBlock;
-use Magento\Framework\View\Element\Message\InterpretationStrategyInterface;
-use Magento\Quote\Model\Quote\Item\AbstractItem;
-use Magento\Framework\App\ObjectManager;
+use Magento\Catalog\Block\Product\ImageBuilder;
+use Magento\Catalog\Helper\Product\Configuration;
 use Magento\Catalog\Model\Product\Configuration\Item\ItemResolverInterface;
+use Magento\Checkout\Model\Session;
 use Magento\ConfigurableProduct\Model\Product\Type\Configurable;
+use Magento\Framework\Message\ManagerInterface;
+use Magento\Framework\Module\Manager;
+use Magento\Framework\Pricing\PriceCurrencyInterface;
+use Magento\Framework\Url\Helper\Data;
+use Magento\Framework\View\Element\Message\InterpretationStrategyInterface;
+use Magento\Framework\View\Element\Template\Context;
 
 /**
  * Shopping cart item render block for configurable products.
@@ -26,18 +26,18 @@ use Magento\ConfigurableProduct\Model\Product\Type\Configurable;
  */
 class UpdateConfigurable extends \Magento\ConfigurableProduct\Block\Cart\Item\Renderer\Configurable
 {
-    /** @var Configurable **/
+    /** @var Configurable * */
     public $configurable;
 
     /**
-     * @param \Magento\Framework\View\Element\Template\Context $context
-     * @param \Magento\Catalog\Helper\Product\Configuration $productConfig
-     * @param \Magento\Checkout\Model\Session $checkoutSession
-     * @param \Magento\Catalog\Block\Product\ImageBuilder $imageBuilder
-     * @param \Magento\Framework\Url\Helper\Data $urlHelper
-     * @param \Magento\Framework\Message\ManagerInterface $messageManager
+     * @param Context $context
+     * @param Configuration $productConfig
+     * @param Session $checkoutSession
+     * @param ImageBuilder $imageBuilder
+     * @param Data $urlHelper
+     * @param ManagerInterface $messageManager
      * @param PriceCurrencyInterface $priceCurrency
-     * @param \Magento\Framework\Module\Manager $moduleManager
+     * @param Manager $moduleManager
      * @param InterpretationStrategyInterface $messageInterpretationStrategy
      * @param array $data
      * @param ItemResolverInterface|null $itemResolver
@@ -46,19 +46,20 @@ class UpdateConfigurable extends \Magento\ConfigurableProduct\Block\Cart\Item\Re
      * @codeCoverageIgnore
      */
     public function __construct(
-        \Magento\Framework\View\Element\Template\Context $context,
-        \Magento\Catalog\Helper\Product\Configuration $productConfig,
-        \Magento\Checkout\Model\Session $checkoutSession,
-        \Magento\Catalog\Block\Product\ImageBuilder $imageBuilder,
-        \Magento\Framework\Url\Helper\Data $urlHelper,
-        \Magento\Framework\Message\ManagerInterface $messageManager,
+        Context $context,
+        Configuration $productConfig,
+        Session $checkoutSession,
+        ImageBuilder $imageBuilder,
+        Data $urlHelper,
+        ManagerInterface $messageManager,
         PriceCurrencyInterface $priceCurrency,
-        \Magento\Framework\Module\Manager $moduleManager,
+        Manager $moduleManager,
         InterpretationStrategyInterface $messageInterpretationStrategy,
         array $data = [],
         ItemResolverInterface $itemResolver = null,
         Configurable $configurable
-    ) {
+    )
+    {
         parent::__construct(
             $context,
             $productConfig,
@@ -66,7 +67,7 @@ class UpdateConfigurable extends \Magento\ConfigurableProduct\Block\Cart\Item\Re
             $imageBuilder,
             $urlHelper,
             $messageManager,
-            $priceCurrency,           
+            $priceCurrency,
             $moduleManager,
             $messageInterpretationStrategy,
             $data,

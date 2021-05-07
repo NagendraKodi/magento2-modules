@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
     <event name="checkout_cart_update_items_after">
-        <observer name="checkout_cart_config_item_update" instance="Orange\CartUpdate\Observer\UpdateOptions" />
+        <observer name="checkout_cart_config_item_update" instance="Orange\CartUpdate\Observer\UpdateOptions"/>
     </event>
 </config>

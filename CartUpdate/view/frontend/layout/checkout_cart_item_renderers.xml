@@ -5,9 +5,11 @@
  * See COPYING.txt for license details.
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <referenceContainer name="content">
-        <referenceBlock name="checkout.cart.item.renderers.configurable"  template="Orange_CartUpdate::cart/item/default.phtml"></referenceBlock>
+        <referenceBlock name="checkout.cart.item.renderers.configurable"
+                        template="Orange_CartUpdate::cart/item/default.phtml"></referenceBlock>
     </referenceContainer>
 </page>
 
