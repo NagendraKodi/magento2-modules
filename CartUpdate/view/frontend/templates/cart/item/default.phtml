@@ -4,6 +4,9 @@
  * See COPYING.txt for license details.
  */
 
+// phpcs:disable Magento2.Templates.ThisInTemplate
+// phpcs:disable Magento2.Files.LineLength.MaxExceeded
+
 // @codingStandardsIgnoreFile
 
 /** @var $block Renderer */
@@ -65,9 +68,9 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
             <?php endif; ?>
             <!-- Configurable prodct edit options change start. -->
             <?php if (count($productAttributeOptions) > 0): ?>
-                <div>If you want to change product options please select below.</div>
+                <p>To update the product options, Please select below & click <b>Update Shopping Cart</b> button.</p>
                 <?php foreach ($productAttributeOptions as $key => $_option) : ?>
-                    <span><?= $_option['label'] ?></span>
+                    <strong><?= $_option['label'] ?></strong>
                     <select name="<?php echo strtolower('cart[' . $_item->getId() . '][super_attribute][' . $_option['attribute_id'] . ']') ?>">
                         <option>Please select</option>
                         <?php

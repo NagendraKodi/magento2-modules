@@ -19,7 +19,6 @@ class UpdateOptions implements ObserverInterface
     public function execute(Observer $observer)
     {
         $cart = $observer->getCart();
-        $data = $observer->getEvent()->getInfo()->toArray();
         $cartData = $this->_request->getPost();
         foreach ($cartData['cart'] as $itemId => $itemInfo) {
             $item = $cart->getQuote()->getItemById($itemId);

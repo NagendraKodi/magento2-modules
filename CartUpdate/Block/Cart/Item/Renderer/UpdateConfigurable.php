@@ -78,7 +78,6 @@ class UpdateConfigurable extends \Magento\ConfigurableProduct\Block\Cart\Item\Re
 
     public function getConfigurableOptions($product)
     {
-        $productAttributeOptions = $this->configurable->getConfigurableAttributesAsArray($product);
-        return $productAttributeOptions;
+        return $this->configurable->getConfigurableAttributesAsArray($product);
     }
 }
