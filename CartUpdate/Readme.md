@@ -1,8 +1,13 @@
 # Magento 2 Cart Update
 
-**Magento 2 Orange_CartUpdate module by Nagendra Kodi**
+Magento 2 Orange_CartUpdate module by [Nagendra Kodi](https://www.linkedin.com/in/nagendrakodi/)
 
-**Description:** Update the config product options on cart page
+**Module Name:** Orange_CartUpdate
+
+**Version:** 1.0.0
+ 
+**Description:** Update the config product options on cart page. To update the product options, Please select the options and then click Update Shopping Cart button.
+<img src="https://i.imgur.com/H8Ff6Cy.gif" width="823" height="421" />
 
 **Overriden the below event, layout, and template:**
 ```
@@ -11,7 +16,3 @@ vendor/magento/module-configurable-product/view/frontend/layout/checkout_cart_it
 vendor/magento/module-checkout/view/frontend/templates/cart/item/default.phtml
 vendor/magento/module-configurable-product/Block/Cart/Item/Renderer/Configurable.php
 ```
-
-<img src="https://i.imgur.com/H8Ff6Cy.gifv" width="823" height="421" />
-
-
