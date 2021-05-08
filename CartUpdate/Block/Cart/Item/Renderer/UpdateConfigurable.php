@@ -26,22 +26,24 @@ use Magento\Framework\View\Element\Template\Context;
  */
 class UpdateConfigurable extends \Magento\ConfigurableProduct\Block\Cart\Item\Renderer\Configurable
 {
-    /** @var Configurable * */
+    /**
+     * @var Configurable *
+     */
     public $configurable;
 
     /**
-     * @param Context $context
-     * @param Configuration $productConfig
-     * @param Session $checkoutSession
-     * @param ImageBuilder $imageBuilder
-     * @param Data $urlHelper
-     * @param ManagerInterface $messageManager
-     * @param PriceCurrencyInterface $priceCurrency
-     * @param Manager $moduleManager
-     * @param InterpretationStrategyInterface $messageInterpretationStrategy
-     * @param array $data
-     * @param ItemResolverInterface|null $itemResolver
-     * @param Configurable $configurable
+     * @param                                          Context                         $context
+     * @param                                          Configuration                   $productConfig
+     * @param                                          Session                         $checkoutSession
+     * @param                                          ImageBuilder                    $imageBuilder
+     * @param                                          Data                            $urlHelper
+     * @param                                          ManagerInterface                $messageManager
+     * @param                                          PriceCurrencyInterface          $priceCurrency
+     * @param                                          Manager                         $moduleManager
+     * @param                                          InterpretationStrategyInterface $messageInterpretationStrategy
+     * @param                                          array                           $data
+     * @param                                          ItemResolverInterface|null      $itemResolver
+     * @param                                          Configurable                    $configurable
      * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      * @codeCoverageIgnore
      */
@@ -58,8 +60,7 @@ class UpdateConfigurable extends \Magento\ConfigurableProduct\Block\Cart\Item\Re
         array $data = [],
         ItemResolverInterface $itemResolver = null,
         Configurable $configurable
-    )
-    {
+    ) {
         parent::__construct(
             $context,
             $productConfig,

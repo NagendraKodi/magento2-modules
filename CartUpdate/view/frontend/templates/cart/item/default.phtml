@@ -4,9 +4,6 @@
  * See COPYING.txt for license details.
  */
 
-// phpcs:disable Magento2.Templates.ThisInTemplate
-// phpcs:disable Magento2.Files.LineLength.MaxExceeded
-
 // @codingStandardsIgnoreFile
 
 /** @var $block Renderer */
@@ -37,7 +34,7 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
             <?= $block->getImage($block->getProductForThumbnail(), 'cart_page_product_thumbnail')->toHtml() ?>
             <?php if ($block->hasProductUrl()): ?>
         </a>
-    <?php else: ?>
+            <?php else: ?>
         </span>
     <?php endif; ?>
         <div class="product-item-details">
@@ -51,7 +48,7 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
             </strong>
             <?php if ($_options = $block->getOptionList()): ?>
                 <dl class="item-options">
-                    <?php foreach ($_options as $_option) : ?>
+                    <?php foreach ($_options as $_option): ?>
                         <?php
                         $_formatedOptionValue = $block->getFormatedOptionValue($_option) ?>
                         <dt><?= $block->escapeHtml($_option['label']) ?></dt>
@@ -66,10 +63,10 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                     <?php endforeach; ?>
                 </dl>
             <?php endif; ?>
-            <!-- Configurable prodct edit options change start. -->
+            <!-- Configurable product edit options change start. -->
             <?php if (count($productAttributeOptions) > 0): ?>
                 <p>To update the product options, Please select below & click <b>Update Shopping Cart</b> button.</p>
-                <?php foreach ($productAttributeOptions as $key => $_option) : ?>
+                <?php foreach ($productAttributeOptions as $key => $_option): ?>
                     <strong><?= $_option['label'] ?></strong>
                     <select name="<?php echo strtolower('cart[' . $_item->getId() . '][super_attribute][' . $_option['attribute_id'] . ']') ?>">
                         <option>Please select</option>
@@ -80,7 +77,7 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                     </select>
                 <?php endforeach; ?>
             <?php endif; ?>
-            <!-- Configurable prodct edit options change end. -->
+            <!-- Configurable product edit options change end. -->
             <?php if ($messages = $block->getMessages()): ?>
                 <?php foreach ($messages as $message): ?>
                     <div class="cart item message <?= /* @escapeNotVerified */
@@ -126,10 +123,10 @@ $canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinima
                     <input id="cart-<?= /* @escapeNotVerified */
                     $_item->getId() ?>-qty"
                            name="cart[<?= /* @escapeNotVerified */
-                           $_item->getId() ?>][qty]"
+                            $_item->getId() ?>][qty]"
                            data-cart-item-id="<?= $block->escapeHtml($_item->getSku()) ?>"
                            value="<?= /* @escapeNotVerified */
-                           $block->getQty() ?>"
+                            $block->getQty() ?>"
                            type="number"
                            size="4"
                            title="<?= $block->escapeHtml(__('Qty')) ?>"

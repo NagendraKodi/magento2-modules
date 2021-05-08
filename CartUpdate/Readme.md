@@ -9,7 +9,9 @@ Magento 2 Orange_CartUpdate module by [Nagendra Kodi](https://www.linkedin.com/i
 **Description:** Update the config product options on cart page. To update the product options, Please select the options and then click Update Shopping Cart button.
 <img src="https://i.imgur.com/H8Ff6Cy.gif" width="823" height="421" />
 
-**Overriden the below event, layout, and template and Block:**
+Module verified on Magento CE 2.3.3 and 2.4.0
+
+**Overridden the below event, layout, and template and Block:**
 ```
 checkout_cart_update_items_after event
 vendor/magento/module-configurable-product/view/frontend/layout/checkout_cart_item_renderers.xml
